@@ -27,8 +27,9 @@ def index(datapath, dbpath):
         # 'fields' is a dictionary mapping from field name to value.
         # Pick out the fields we're going to index.
         # body = fields.get('BODY', u'')
-        body = fields.get('BODY', u'')
         title = fields.get('TITLE', u'')
+        body = fields.get('BODY', u'')
+        textClass = fields.get('CLASS', u'')
         identifier = fields.get('ID', u'')
         print '{}'.format(title)
         print '{}'.format(body)
@@ -38,13 +39,16 @@ def index(datapath, dbpath):
         termgenerator.set_document(doc)
 
         # Index each field with a suitable prefix.
-        termgenerator.index_text(title, 1, 'S')
-        termgenerator.index_text(body, 1, 'XD')
+        termgenerator.index_text(textClass, 1, 'C')
+        termgenerator.index_text(body, 1, 'B')
+        termgenerator.index_text(identifier, 1, 'I')
 
         # Index fields without prefixes for general search.
-        termgenerator.index_text(title)
+        termgenerator.index_text(textClass)
         termgenerator.increase_termpos()
         termgenerator.index_text(body)
+        termgenerator.increase_termpos()
+        termgenerator.index_text(identifier)
 
         # Store all the fields for display purposes.
         doc.set_data(json.dumps(fields, ensure_ascii=False, encoding="utf-8"))
