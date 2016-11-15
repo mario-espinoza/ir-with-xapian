@@ -13,16 +13,13 @@ def log_matches(querystring, offset, pagesize, matches):
         )
 
 ### Start of Search.
-def search(dbpath, title, offset=0, pagesize=10):
-    print 'TITLE: {}'.format(title)
+def search(dbpath, title,  offset=0, pagesize=10):
+    print '{}'.format(title)
     regex = re.findall(r'\w+', title.lower())
+    print 'REGEX: {}'.format(regex)
     queryAND = ' AND '.join(regex)
     queryOR = ' OR '.join(regex)
-    print 'REGEX: {}'.format(regex)
-    # search('DB', queryAND.encode('utf-8'))
-    # search('DB', queryOR.encode('utf-8'))
-    queries = [queryAND,queryOR]
-    for querystring in queries:
+    for querystring in [queryAND.encode('utf-8'),queryOR.encode('utf-8')]:
         print 'QUERY: {}'.format(querystring)
         # offset - defines starting point within result set
         # pagesize - defines number of records to retrieve
@@ -51,16 +48,14 @@ def search(dbpath, title, offset=0, pagesize=10):
         # And print out something about each match
         matches = []
         for match in enquire.get_mset(offset, pagesize):
-            toDecode = match.document.get_data();
-            fields = json.loads(toDecode.decode('utf-8', 'ignore'))
-            matchTitle =fields.get('TITLE', u'') 
-            if title == matchTitle:
-                print '\nThis is \n'
-            print(u"%(rank)i: #%(docid)3.3i \n %(id)s \n TITLE: %(title)s \n %(body)s \n %(class)s" % {
+            fields = json.loads(match.document.get_data())
+            # if title == fields.get('TITLE', u''):
+            #     print 'This is \n'
+            print(u"%(rank)i: #%(docid)3.3i \n %(id)s \n %(title)s \n %(body)s \n %(class)s \n" % {
                 'rank': match.rank + 1,
                 'docid': match.docid,
                 'id': fields.get('ID', u''),
-                'title': matchTitle,
+                'title': fields.get('TITLE', u''),
                 'body': fields.get('BODY', u''),
                 'class': fields.get('CLASS', u'')
                 })
@@ -68,13 +63,11 @@ def search(dbpath, title, offset=0, pagesize=10):
 
         # Finally, make sure we log the query and displayed results
         log_matches(querystring, offset, pagesize, matches)
-    print '\n'
 ### End of example code.
 
 logging.basicConfig(level=logging.INFO)
 with open('titles.txt','rU') as titleFile:
     titles = titleFile.readlines()
     for title in titles:
-        print '{}'.format(title)
-        search('DB', title)
+        search('DB', title.encode('utf-8'))
         # search('DB', querystring = " ".join(title))
