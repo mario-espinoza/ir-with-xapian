@@ -12,15 +12,15 @@ def log_matches(querystring, offset, pagesize, matches):
         ' '.join(str(docid) for docid in matches),
         )
 
-andFile = open('andRankingsFinalV.csv','w+')
-orFile = open('orRankingsFinalV.csv','w+')
-analysis = open('analysisFinalV.txt','w+')
+andFile = open('andRankingsFinal.csv','w+')
+orFile = open('orRankingsFinal.csv','w+')
+analysis = open('analysisFinal.txt','w+')
 ### Start of Search.
 andRankings = []
 orRankings = []
 lengths = []
 classes=[]
-dbpath='DBJopia'
+dbpath='DB'
 offset=0
 pagesize=10
 
@@ -69,6 +69,9 @@ def search(title, clase,titleId):
 
         # And print out something about each match
         matches = []
+
+        totalMatches = len(enquire.get_mset(offset, 650))
+        print 'TOTAL: {}'.format(totalMatches) 
         
         for match in enquire.get_mset(offset, pagesize):
             toDecode = match.document.get_data();
@@ -125,7 +128,7 @@ def search(title, clase,titleId):
 ### End of example code.
 
 logging.basicConfig(level=logging.INFO)
-with open('titlesVero.txt','rU') as titleFile:
+with open('titles.txt','rU') as titleFile:
     lines = titleFile.readlines()
     for (i,line) in enumerate(lines):
         print(line)

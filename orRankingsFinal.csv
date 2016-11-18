@@ -1,12 +1,384 @@
-,,Ranking,,,,,,,,,,,,,,,Clases,,,,,,,
-,,0,1,2,3,4,5,6,7,8,9,10, Total,,,,Archivada,Complejas,No respondibles,Opiniones,Otros,Particulares,Web y Archivada,Total
-Etiquetas,Archivada,18,48,1,2,,1,1,,,,2,73,,Ranking,10,2,,,1,,1,,4
-,Complejas,7,11,,1,,,,,,,,19,,,7,,,,2,,1,,3
-,No respondibles,9,13,1,1,1,1,,,,,,26,,,6,1,,,1,,,,2
-,Opiniones,42,83,6,1,1,,1,2,,,1,137,,,5,1,,1,,,1,,3
-,Otros,1,,,,,,,,,,,1,,,4,,,1,1,,1,,3
-,Particulares,29,81,8,4,1,1,,1,,,1,126,,,3,2,1,1,1,,4,,9
-,Web y Archivada,1,1,,,,,,,,,,2,,,2,1,,1,6,,8,,16
-,Total,107,237,16,9,3,3,2,3,0,0,4,384,,,1,48,11,13,83,,81,1,237
-,,,,,,,,,,,,,,,,No Encontradas,18,7,9,42,1,29,1,107
-,,,,,,,,,,,,,,,,Total,73,19,26,137,1,126,2,384
+1,7,Archivada
+1,6,Opiniones
+1,18,Particulares
+0, 7,Particulares
+1,18,No respondibles
+3,14,No respondibles
+0, 12,Archivada
+0, 16,No respondibles
+2,14,Opiniones
+1,9,Web y Archivada
+0, 18,Particulares
+1,15,No respondibles
+0, 14,Opiniones
+1,11,Archivada
+1,15,Particulares
+1,3,Particulares
+1,4,Archivada
+0, 13,Particulares
+0, 21,Otros
+1,3,Particulares
+1,8,Opiniones
+1,4,Particulares
+1,5,Particulares
+1,6,Particulares
+1,9,Particulares
+0, 11,Archivada
+1,10,Opiniones
+1,9,Opiniones
+3,21,Complejas
+1,8,Opiniones
+1,10,Archivada
+0, 4,Particulares
+0, 24,Particulares
+1,14,Particulares
+1,5,Particulares
+1,8,Complejas
+2,10,No respondibles
+1,10,Opiniones
+0, 11,Archivada
+1,17,Complejas
+1,9,No respondibles
+1,5,Opiniones
+1,14,Particulares
+1,17,Opiniones
+1,13,Opiniones
+0, 25,Complejas
+0, 23,No respondibles
+0, 5,Archivada
+1,5,Opiniones
+1,12,Particulares
+0, 8,Particulares
+1,10,Opiniones
+0, 8,Particulares
+0, 11,Particulares
+0, 24,Archivada
+1,3,Archivada
+0, 13,Particulares
+1,14,Complejas
+1,7,Archivada
+1,6,Archivada
+0, 7,Opiniones
+0, 22,Opiniones
+1,14,Opiniones
+1,2,Archivada
+1,9,Opiniones
+0, 16,Complejas
+1,7,Opiniones
+1,12,Opiniones
+1,5,Opiniones
+1,2,Archivada
+10,16,Archivada
+0, 20,Archivada
+2,9,Opiniones
+1,14,Complejas
+0, 7,Archivada
+1,12,Opiniones
+0, 4,Particulares
+1,6,Archivada
+0, 10,Particulares
+0, 27,Archivada
+1,13,Particulares
+1,11,Particulares
+1,5,Particulares
+0, 24,Opiniones
+1,22,Complejas
+1,8,Opiniones
+0, 23,No respondibles
+1,3,Particulares
+1,8,No respondibles
+0, 21,Opiniones
+0, 26,Archivada
+1,9,Particulares
+1,4,Particulares
+1,9,Archivada
+1,3,Archivada
+1,4,Archivada
+1,12,Complejas
+1,7,Archivada
+1,7,Archivada
+10,5,Archivada
+0, 17,Opiniones
+1,6,Archivada
+1,12,Opiniones
+0, 16,Complejas
+3,6,Particulares
+1,22,Opiniones
+0, 3,Particulares
+1,7,Particulares
+1,7,Particulares
+0, 13,Opiniones
+1,6,Opiniones
+1,14,Archivada
+1,7,Archivada
+0, 18,Archivada
+2,7,Particulares
+1,12,Particulares
+1,24,Complejas
+1,17,Particulares
+2,25,Opiniones
+5,9,Particulares
+1,10,Opiniones
+0, 7,Particulares
+1,9,Particulares
+1,4,Archivada
+1,7,Particulares
+1,6,Archivada
+5,7,Archivada
+1,9,Archivada
+1,3,Particulares
+1,6,Archivada
+0, 5,Archivada
+1,10,Archivada
+0, 28,Opiniones
+1,7,Particulares
+0, 8,Particulares
+0, 6,Particulares
+1,15,Archivada
+1,12,Particulares
+1,10,Particulares
+0, 3,Particulares
+1,12,Particulares
+1,4,Archivada
+1,3,Particulares
+1,10,Particulares
+1,8,Opiniones
+0, 10,Opiniones
+1,9,Particulares
+1,2,Opiniones
+1,4,Archivada
+1,11,Particulares
+1,17,Particulares
+3,7,Archivada
+1,6,Particulares
+1,7,Particulares
+1,6,Opiniones
+0, 7,Particulares
+0, 18,Archivada
+1,4,Particulares
+1,12,Archivada
+1,8,Opiniones
+1,8,Opiniones
+0, 11,Opiniones
+2,6,Particulares
+0, 12,Archivada
+1,15,Archivada
+1,12,Archivada
+1,11,Particulares
+1,5,Archivada
+1,10,Opiniones
+0, 4,Particulares
+7,6,Particulares
+1,4,Archivada
+0, 17,Opiniones
+1,21,Archivada
+1,10,Opiniones
+1,5,Archivada
+0, 15,Archivada
+1,11,Opiniones
+1,15,Particulares
+0, 11,Opiniones
+1,9,Particulares
+1,18,Particulares
+1,18,Particulares
+1,11,Opiniones
+1,7,Particulares
+1,12,Particulares
+0, 14,Particulares
+0, 29,No respondibles
+1,10,No respondibles
+0, 10,Opiniones
+1,6,Particulares
+1,5,Particulares
+1,13,Particulares
+0, 16,Particulares
+0, 8,No respondibles
+1,8,No respondibles
+1,14,Archivada
+1,5,Opiniones
+0, 24,Opiniones
+0, 2,Complejas
+1,5,Particulares
+1,10,Opiniones
+1,9,Particulares
+3,12,Particulares
+1,10,No respondibles
+1,4,Opiniones
+4,9,No respondibles
+0, 20,Opiniones
+1,4,Opiniones
+1,19,Opiniones
+0, 9,Opiniones
+1,6,Particulares
+1,6,Particulares
+10,20,Particulares
+1,15,Particulares
+0, 10,Particulares
+1,12,Particulares
+1,4,Archivada
+5,9,No respondibles
+1,11,Opiniones
+1,16,Complejas
+0, 10,Opiniones
+4,21,Opiniones
+0, 7,Opiniones
+0, 24,Opiniones
+1,13,Particulares
+1,8,Opiniones
+1,15,Opiniones
+1,12,No respondibles
+0, 13,No respondibles
+0, 7,Complejas
+1,13,Opiniones
+1,5,Opiniones
+0, 7,Archivada
+7,6,Opiniones
+1,23,Opiniones
+0, 12,Opiniones
+1,12,Opiniones
+0, 11,Complejas
+1,7,No respondibles
+1,9,Opiniones
+1,17,Opiniones
+0, 18,Archivada
+0, 11,Archivada
+0, 23,Opiniones
+0, 8,No respondibles
+1,4,Opiniones
+1,7,Particulares
+1,10,Opiniones
+1,15,Particulares
+1,12,Opiniones
+0, 19,Opiniones
+2,12,Opiniones
+1,23,Opiniones
+1,9,Archivada
+1,11,Opiniones
+1,21,Opiniones
+0, 21,Opiniones
+1,19,Complejas
+1,7,Particulares
+1,10,Particulares
+3,9,Opiniones
+1,8,Particulares
+1,10,Archivada
+1,8,No respondibles
+1,16,Archivada
+1,12,Particulares
+2,8,Opiniones
+1,7,Particulares
+1,6,Archivada
+0, 15,Particulares
+1,9,Particulares
+1,2,Opiniones
+1,19,Opiniones
+1,4,Particulares
+0, 2,Web y Archivada
+1,8,Opiniones
+0, 20,No respondibles
+6,27,Opiniones
+0, 3,Opiniones
+1,13,No respondibles
+1,8,Opiniones
+1,7,Particulares
+1,14,Particulares
+0, 18,Archivada
+0, 5,Opiniones
+2,12,Particulares
+1,11,Particulares
+1,11,Complejas
+0, 7,Opiniones
+1,8,Archivada
+0, 7,Opiniones
+1,3,Particulares
+0, 12,Opiniones
+3,24,Particulares
+1,5,Opiniones
+1,22,Opiniones
+2,8,Archivada
+1,2,Archivada
+1,17,Opiniones
+1,10,Particulares
+1,18,Opiniones
+0, 21,Opiniones
+1,4,Archivada
+1,9,Particulares
+0, 8,Opiniones
+1,15,Complejas
+1,4,Particulares
+1,14,Particulares
+1,7,Opiniones
+4,15,Particulares
+1,9,Opiniones
+1,13,Particulares
+0, 21,Particulares
+1,12,Opiniones
+1,6,Opiniones
+2,5,Particulares
+0, 5,No respondibles
+0, 16,Opiniones
+1,11,Particulares
+2,2,Particulares
+6,3,Archivada
+1,5,Opiniones
+1,10,Opiniones
+2,11,Particulares
+0, 9,Opiniones
+0, 26,Complejas
+0, 31,Opiniones
+1,3,Opiniones
+1,12,Opiniones
+0, 4,Opiniones
+0, 14,Opiniones
+1,13,Opiniones
+0, 15,Particulares
+0, 7,Opiniones
+1,6,No respondibles
+1,12,Particulares
+1,9,Archivada
+0, 2,Opiniones
+1,25,Particulares
+10,9,Opiniones
+0, 7,Opiniones
+0, 9,Opiniones
+1,15,Opiniones
+1,22,Opiniones
+0, 7,Particulares
+1,23,Opiniones
+1,4,Particulares
+1,22,Particulares
+1,21,Archivada
+1,7,Particulares
+1,18,Opiniones
+0, 8,Particulares
+0, 28,Particulares
+0, 7,Opiniones
+1,11,Opiniones
+1,3,Opiniones
+1,9,Opiniones
+1,24,Opiniones
+1,9,Particulares
+1,17,Archivada
+2,2,Particulares
+1,10,Opiniones
+0, 9,Opiniones
+0, 7,Particulares
+1,27,Opiniones
+1,11,Opiniones
+7,6,Opiniones
+3,11,Particulares
+0, 11,Opiniones
+1,14,No respondibles
+0, 10,Particulares
+1,15,Opiniones
+3,4,Archivada
+2,12,Opiniones
+2,2,Particulares
+1,9,Opiniones
+1,5,Archivada
+1,12,Archivada
+1,7,Particulares
+1,19,Opiniones
+1,16,Particulares
+1,7,Opiniones
+1,13,Archivada
