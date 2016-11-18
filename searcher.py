@@ -12,15 +12,15 @@ def log_matches(querystring, offset, pagesize, matches):
         ' '.join(str(docid) for docid in matches),
         )
 
-andFile = open('andRankingsFinal.csv','w+')
-orFile = open('orRankingsFinal.csv','w+')
-analysis = open('analysisFinal.txt','w+')
+andFile = open('andRankingsFinalV.csv','w+')
+orFile = open('orRankingsFinalV.csv','w+')
+analysis = open('analysisFinalV.txt','w+')
 ### Start of Search.
 andRankings = []
 orRankings = []
 lengths = []
 classes=[]
-dbpath='DB'
+dbpath='DBJopia'
 offset=0
 pagesize=10
 
@@ -125,7 +125,7 @@ def search(title, clase,titleId):
 ### End of example code.
 
 logging.basicConfig(level=logging.INFO)
-with open('titles.txt','rU') as titleFile:
+with open('titlesVero.txt','rU') as titleFile:
     lines = titleFile.readlines()
     for (i,line) in enumerate(lines):
         print(line)

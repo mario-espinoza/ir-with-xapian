@@ -1,0 +1,49 @@
+import csv,io
+
+withBody = 0;
+noBody = 0;
+
+classes={
+	'1':'Opiniones',
+	'2':'No respondibles',
+	'3':'Particulares',
+	'4':'Otros',
+	'5':'Archivada',
+	'6':'Web',
+	'7':'Complejas',
+	'8':'Web y Archivada'
+}
+
+with io.open('titles.txt', 'w+', encoding='utf-8') as titleFile:	
+	with open('dataWithBody.csv', 'w+') as ocsvfile:
+		with open('marioEspinoza.csv', 'rU') as icsvfile:
+			spamwriter = csv.writer(ocsvfile, delimiter=',')
+			spamreader = csv.reader(icsvfile, delimiter=',')
+			#id_Pregunta;Titulo;Cuerpo;Categoria;Clase;HWeb;HYA;NResp;Seguidores
+			spamwriter.writerow(['ID','TITLE','CLASS','BODY'])
+			# spamwriter.writerow(['ID','TITLE','BODY','CAT','CLASS'])
+			for i,row in enumerate(spamreader):	
+				print(row)
+				if i>0:
+					idText = row[0].replace('\n', ' ').strip();
+					title = row[2].replace('\n', ' ').strip();
+					tag = row[1].replace('\n', ' ').strip();
+					body = row[3]
+					# cat = row[3].replace('\n', ' ').strip();
+					body = ' '.join(x.strip() for x in body.split())
+
+					if len(body) == 0:
+						noBody=noBody+1;
+						print 'Empty'
+					else: 
+											
+						withBody=withBody+1;
+						print '{}'.format(idText);
+						print '{}'.format(title);
+						print 'len: {}'.format(len(body));
+						print 'body:"{}"'.format(body);
+						spamwriter.writerow([idText,title,classes[tag],body]);
+						# spamwriter.writerow([idText,title,body,cat,tag]);
+						titleFile.write(unicode(title+'|'+classes[tag]+'\n', errors='ignore'));
+print 'withBody: {}'.format(withBody);
+print 'nobody: {}'.format(noBody);
