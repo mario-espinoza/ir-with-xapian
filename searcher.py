@@ -16,37 +16,13 @@ andFile = open('andRankingsFinal.csv','w+')
 orFile = open('orRankingsFinal.csv','w+')
 analysis = open('analysisFinal.txt','w+')
 
-# andRankings = []
-# orRankings = []
-# andPrecisionAt1=[]
-# andPrecisionAt2=[]
-# andPrecisionAt5=[]
-# andPrecisionAt10=[]
-# andRecalls=[]
-# orPrecisionsAt1=[]
-# orPrecisionsAt2=[]
-# orPrecisionsAt5=[]
-# andPrecisionAt10=[]
-# orRecalls=[]
+atributes = ['ReciprocalRanking','Recall','Precision@1','Precision@2','Precision@5','Precision@10','F1-Score']
 
-DATA = {
-    'OR':{
-        'rankings':[],
-        'recalls':[],
-        'precisionsAt1':[],
-        'precisionsAt2':[],
-        'precisionsAt5':[],
-        'precisionsAt10':[]
-    },
-    'AND': {
-        'rankings':[],
-        'recalls':[],
-        'precisionsAt1':[],
-        'precisionsAt2':[],
-        'precisionsAt5':[],
-        'precisionsAt10':[]
-    }
-}
+DATA={};
+for KEY in ['AND','OR']:
+    DATA[KEY]={};
+    for ATTR in atributes:
+        DATA[KEY][ATTR]=[];
 
 lengths = []
 classes=[]
@@ -79,7 +55,8 @@ def search(title, clase,categoria,titleId):
         if andQuery:
             of = andFile;
             data = DATA['AND']
-        else: 
+        else:
+            of = orFile;
             data = DATA['OR']
 
         queryparser = xapian.QueryParser()
@@ -106,14 +83,6 @@ def search(title, clase,categoria,titleId):
             matchRank=match.rank + 1
             docid = match.docid
             docClass=fields.get('CLASS', u'')
-            
-            # if matchRank>1 and title == matchTitle :
-                # print '\n *** \n'
-                # print title
-                # print matchTitle
-                # print 'matchRank: {}\n'.format(matchRank)
-                # # print 'MRR: {}\n'.format(1/matchRank)
-                # print '\n *** \n'
 
             # print(u"%(rank)i: #%(docid)3.3i \n %(id)s \n TITLE: %(title)s \n %(body)s \n %(class)s" % {
                     # 'rank': matchRank,
@@ -124,50 +93,43 @@ def search(title, clase,categoria,titleId):
                     # 'class': fields.get('CLASS', u'')
                     # })
             matches.append(match.docid)
-            # MRR=1/matchRank
-        # print 'MRR: {}\n'.format(MRR)
-        # Finally, make sure we log the query and displayed results
-        # print(matches)
+            
+        lenMatches = len(matches)
+        ranking=0;
+        reciprocalRanking=0;
+        recall=0;
+        precisionAt1=0;
+        precisionAt2=0;
+        precisionAt5=0;
+        precision=0;
+        f1Score=0;
 
         if titleId in matches:
             ranking = matches.index(titleId)+1
             # print 'INDEX :{}'.format(ranking)
-            of.write('{},{},{},{},1\n'.format(ranking,length,clase,categoria))
-            # if andQuery:
-            #     andRankings.append(ranking)             
-            # else: 
-            data.rankings.append(ranking)
-                
-        else:
-            of.write('0, {},{},{},1\n'.format(length,clase,categoria))
-            # print 'not found'
-            # if andQuery:
-            #     andRankings.append(0)
-            #     andRecalls.append(0)
-            #     andPrecisionAt1.append(0)
-            #     andPrecisionAt2.append(0)
-            #     andPrecisionAt5.append(0)
-            #     andPrecisionAt10.append(0)
-            # else: 
-            data.rankings.append(0)
-            data.recalls.append(0)
-            data.precisionAt1.append(0)
-            data.precisionAt2.append(0)
-            data.precisionAt5.append(0)
-            data.precisionAt10.append(0)
-
+            reciprocalRanking=Fraction(1,ranking);
+            precision = Fraction(1,lenMatches)
+            
+            if ranking < 2:
+                precisionAt1=precision;      
+            if ranking < 3:
+                precisionAt2=precision;      
+            if ranking < 6:
+                precisionAt5=precision
+            recall=Fraction(1,1)
+            f1Score=2*(precision*recall)/(precision+recall)
+            
+        data['ReciprocalRanking'].append(reciprocalRanking)
+        data['Recall'].append(recall)
+        data['Precision@1'].append(precisionAt1)
+        data['Precision@2'].append(precisionAt2)
+        data['Precision@5'].append(precisionAt5)
+        data['Precision@10'].append(precision)
+        data['F1-Score'].append(f1Score)
+        of.write('1,{},{},{},{},{:f},{:f},{:f},{:f},{:f}\n'.format(ranking,length,clase,categoria,float(recall),float(precisionAt1),float(precisionAt2),float(precisionAt5),float(precision),float(f1Score)))
 
         andQuery = not andQuery
         # log_matches(querystring, offset, pagesize, matches)
-
-def reciprocal(arr):
-    rr=[]
-    for i in arr:
-        if i>0:
-            rr.append(Fraction(1,i))
-        else:
-            rr.append(0)
-    return rr
 
 def avgFromArr(arr):
     return (reduce(lambda x, y: x + y, arr) / len(arr))+0.0000
@@ -175,19 +137,17 @@ def avgFromArr(arr):
 logging.basicConfig(level=logging.INFO)
 with open('titles.txt','rU') as titleFile:
 
-    headers="Ranking,LargoTitulo,Etiqueta,Categoria,Frecuencia\n"
+    headers="Frecuencia,Ranking,LargoTitulo,Etiqueta,Categoria,Recall,Precision@1,Precision@2,Precision@5,Precision@10,F1-Score\n"
     andFile.write(headers)
     orFile.write(headers)
     lines = titleFile.readlines()
     for (i,line) in enumerate(lines):
-        print(line)
+        # print(line)
         data=line.split('|');
         title,clase,categoria = [x.replace('\n','') for x in data]
-        # clase=data[1].replace('\n','').strip();
         classes.append(clase);
-
         search(title,clase, categoria, i+1)
-        # search('DB', querystring = " ".join(title))
+        
     andFile.close
     orFile.close
     # print('\nLENGHTS')
@@ -196,20 +156,18 @@ with open('titles.txt','rU') as titleFile:
     # print(classes)
 
     for t in ['AND','OR']:
-        inf
-        print('\n{} Rankings'.format(t))
-        rankings = data[t].rankings
-        print(rankings)
-        MRR = avgFromArr(reciprocal(rankings))
-        print('Mean: ')
-        print(MRR)
-        analysis.write('{}: {}\n'.format(t,AND_MRR))
-    
-    # print('\nOR Rankings')
-    # print(orRankings)
-    # OR_MRR = avgFromArr(reciprocal(orRankings))
-    # print('Mean: ')
-    # print(OR_MRR)
-    # analysis.write('OR: {}\n'.format(OR_MRR))
+        for attr in atributes:
+            if attr == 'ReciprocalRanking':
+                tag = 'MRR'
+            else: 
+                tag=attr
+            print('\n{} {}'.format(t,tag))
+            data = DATA[t][attr];
+            print(data)
+            val = avgFromArr(data)
+            print('{}: '.format(tag))
+            print(val)
+            analysis.write('{} {}: {}\n'.format(tag,t,val))
+        analysis.write('\n')
     
 
